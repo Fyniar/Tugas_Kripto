@@ -16,7 +16,7 @@ Fout = str(input("Silahkan masukan nama file output : "))
 
 K = str(input("Silahkan masukan kata kunci : "))
 
-ShaKey = sha256(K.encode('utf-8')).digest()
+Key = sha256(K.encode('utf-8')).digest()
 print(filename)
 
 
@@ -27,7 +27,7 @@ with open(Fin, 'rb') as Fin:
         while Fin.peek():
             c = ord(Fin.read(1))
             j = i % len(ShaKey)
-            b = bytes([c^ShaKey[j]])
+            b = bytes([c^Key[j]])
             Fout.write(b)
             i = i + 1
 print("File encrypted !")
