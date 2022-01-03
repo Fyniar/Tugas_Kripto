@@ -26,7 +26,7 @@ with open(Fin, 'rb') as Fin:
         i = 0
         while Fin.peek():
             c = ord(Fin.read(1))
-            j = i % len(ShaKey)
+            j = i % len(Key)
             b = bytes([c^Key[j]])
             Fout.write(b)
             i = i + 1
